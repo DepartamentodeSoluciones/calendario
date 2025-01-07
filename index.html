@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administrador de tareas con calendario, para organizar tus tareas pendientes, vencidas y actuales.">
+    <meta name="author" content="Juan Pérez">
+    <title>Administrador de Tareas</title>
+    <link rel="stylesheet" href="style.css"> <!-- Estilos CSS -->
+</head>
+<body>
+
+    <!-- Header: Información del usuario, reloj y fecha -->
+    <header>
+        <h1 id="user-name">Juan Pérez</h1> <!-- Nombre del usuario -->
+        <div id="clock" class="clock"></div> <!-- Reloj dinámico -->
+        <div id="greeting" class="greeting"></div> <!-- Saludo dinámico -->
+        <div id="date" class="date"></div> <!-- Fecha actual -->
+    </header>
+
+    <!-- Main Content: Tareas, calendario y tareas vencidas -->
+    <main>
+        <!-- Sección de tareas activas -->
+        <section id="tasks-section" class="tasks-section">
+            <h2>Tareas Activas</h2>
+            <div id="tasks-today"></div> <!-- Tareas que vencen hoy -->
+            <ul id="task-list" class="task-list">
+                <!-- Lista de tareas activas -->
+            </ul>
+            <button id="add-task-btn" class="btn">Añadir Tarea</button>
+        </section>
+
+        <!-- Sección del calendario -->
+        <section id="calendar-section" class="calendar-section">
+            <h2>Calendario</h2>
+            <div id="calendar-navigation">
+                <button id="prev-month" class="btn">Anterior</button>
+                <span id="current-month"></span>
+                <button id="next-month" class="btn">Siguiente</button>
+            </div>
+            <div id="calendar"></div> <!-- Vista mensual del calendario -->
+        </section>
+
+        <!-- Sección de tareas vencidas -->
+        <section id="expired-tasks-section" class="expired-tasks-section">
+            <h2>Tareas Vencidas</h2>
+            <ul id="expired-tasks-list" class="expired-tasks-list">
+                <!-- Lista de tareas vencidas -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer (Opcional: información adicional, créditos) -->
+    <footer>
+        <p>Proyecto creado por Juan Pérez</p>
+    </footer>
+
+    <!-- Modal para añadir una nueva tarea -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h3>Agregar Nueva Tarea</h3>
+            <form id="task-form">
+                <label for="task-name">Nombre de la tarea:</label>
+                <input type="text" id="task-name" required>
+
+                <label for="task-description">Descripción:</label>
+                <textarea id="task-description" required></textarea>
+
+                <label for="task-date">Fecha límite:</label>
+                <input type="date" id="task-date" required>
+
+                <button type="submit" class="btn">Agregar Tarea</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="user.js"></script> <!-- Lógica de reloj y saludo -->
+    <script src="tasks.js"></script> <!-- Lógica de tareas -->
+    <script src="calendar.js"></script> <!-- Lógica del calendario -->
+
+</body>
+</html>
