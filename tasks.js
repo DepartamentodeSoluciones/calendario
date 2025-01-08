@@ -80,22 +80,30 @@ taskForm.addEventListener('submit', (event) => {
     modal.style.display = 'none';
 });
 
-// Función para mostrar las tareas
+// Función para marcar la tarea como completada
+function markTaskAsCompleted(index) {
+    tasks[index].completed = true;
+    console.log(tasks); 
+    displayTasks(); // Actualizar la lista de tareas activas
+    expiredTasksList(); // Actualizar la lista de tareas vencidas
+}
+
+// Función para mostrar tareas activas
 function displayTasks() {
     const taskList = document.getElementById('task-list');
     taskList.innerHTML = '';
     
     tasks.forEach((task, index) => {
-        if (!task.completed) {
+        if (!task.completed) {  // Solo mostrar tareas no completadas
             const li = document.createElement('li');
             li.textContent = `${task.name} - ${task.date}`;
             
             const completeBtn = document.createElement('button');
             completeBtn.textContent = 'Marcar como Completada';
+            
+            // Asignar evento para marcar tarea como completada
             completeBtn.addEventListener('click', () => {
-                tasks[index].completed = true;
-                displayTasks();
-                expiredTasksList(); // Actualizar la lista de tareas expiradas
+                markTaskAsCompleted(index); // Llamar a la función externa para marcar la tarea como completada
             });
             
             li.appendChild(completeBtn);
@@ -104,18 +112,21 @@ function displayTasks() {
     });
 }
 
+// Función para mostrar tareas completadas (expired tasks)
 function expiredTasksList() {
-    const expiredTaskList = document.getElementById('expired-task-list');
-    expiredTaskList.innerHTML = '';
+    const expiredTasksList = document.getElementById('expired-tasks-list');
+  
     
     tasks.forEach(task => {
-        if (task.completed) {
+        if (task.completed) {  // Solo mostrar tareas completadas
             const li = document.createElement('li');
             li.textContent = `${task.name} - ${task.date}`;
-            expiredTaskList.appendChild(li);
+            expiredTasksList.appendChild(li);
         }
     });
 }
+
+
 
 displayTasks();
 expiredTasksList();

@@ -129,7 +129,12 @@ section {
 }
 
 .expired-tasks-list li {
-    color: red;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #e3f2fd;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /* Botones comunes */
