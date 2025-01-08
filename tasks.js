@@ -1,5 +1,4 @@
 let tasks = []; // Lista de tareas activas
-
 // Función para agregar una tarea
 document.getElementById('add-task-btn').addEventListener('click', () => {
     document.getElementById('task-modal').style.display = 'flex';
@@ -125,7 +124,6 @@ function expiredTasksList() {
         }
     });
 }
-
 
 
 displayTasks();
